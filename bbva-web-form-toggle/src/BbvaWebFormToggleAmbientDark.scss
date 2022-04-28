@@ -1,0 +1,6 @@
+@import 'node_modules/@bbva-web-components/bbva-foundations-sass/main';
+
+[ambient^=dark] {
+  --bbva-web-form-toggle-label-color: var(--bbva-web-form-toggle-label-color-ambient-dark, #{token('foundations.colors.primaryCoreLightened')});
+  --bbva-web-form-toggle-label-description-color: var(--bbva-web-form-toggle-label-description-color-ambient-dark, #{token('foundations.colors.primaryCoreLightened')});
+}

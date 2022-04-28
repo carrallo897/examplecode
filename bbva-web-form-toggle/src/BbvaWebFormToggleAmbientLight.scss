@@ -1,0 +1,6 @@
+@import 'node_modules/@bbva-web-components/bbva-foundations-sass/main';
+
+[ambient^=light] {
+  --bbva-web-form-toggle-label-color: initial;
+  --bbva-web-form-toggle-label-description-color: initial;
+}

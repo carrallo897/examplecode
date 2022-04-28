@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bbva-web-form-toggle demo</title>
+    <script src="../build/webcomponents-loader.js"></script>
+    <script src="../build/scoping-ambients-shim.min.js"></script>
+    <script src="../build/custom-style-interface.min.js"></script>
+    <script>
+      {
+        const _customElementsDefine = window.customElements.define;
+        window.customElements.define = (name, cl, conf) => {
+          if (customElements.get(name)) {
+            console.warn(`${name} has been defined twice`);
+          } else {
+            _customElementsDefine.call(window.customElements, name, cl, conf);
+          }
+        };
+      }
+    </script>
+    <script defer src="../build/component.js"></script>
+    <script type="module" crossorigin="use-credentials">
+      import '../build/demo-build.js';
+    </script>
+  </head>
+
+  <body>
+    <bbva-core-demo-helper
+      events='["demo-change", "demo-input"]'
+    >
+      <bbva-core-demo-case heading="Basic" description="Default specs">
+        <template>
+          <ul>
+            <li>
+              <bbva-web-form-toggle value="1">Option Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle description="Description" value="2">Option Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle description="Description" value="3" checked>Option Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle description="Description" value="4" disabled>Option Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle description="Description" value="5" disabled checked>Option Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle value="6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi inventore dolores.
+              </bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle 
+                description=" Deserunt in est aliquam ut minima similique, suscipit asperiores quidem quaerat voluptates neque sequi numquam." 
+                value="7"
+              >
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem doloribus illum?
+              </bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+          </ul>
+
+          <script type="module">
+            const listToggle = document.querySelectorAll('bbva-web-form-toggle');
+
+            listToggle.forEach(item => {
+              item.addEventListener('change', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-change', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+
+              item.addEventListener('input', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-input', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+            });
+          </script>
+        </template>
+      </bbva-core-demo-case>
+
+      <bbva-core-demo-case heading="Left" description="Variant left">
+        <template>
+          <ul>
+            <li>
+              <bbva-web-form-toggle value="1" variant="left">Option Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle value="2" description="Description" variant="left">Option Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle value="3" variant="left">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores modi inventore dolores.
+              </bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle 
+                description=" Deserunt in est aliquam ut minima similique, suscipit asperiores quidem quaerat voluptates neque sequi numquam." 
+                value="4"
+                variant="left"
+              >
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem doloribus illum?
+              </bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+          </ul>
+
+          <script type="module">
+            const listToggle = document.querySelectorAll('bbva-web-form-toggle');
+
+            listToggle.forEach(item => {
+              item.addEventListener('change', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-change', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+
+              item.addEventListener('input', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-input', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+            });
+          </script>
+        </template>
+      </bbva-core-demo-case>
+
+      <bbva-core-demo-case heading="Switch" description="Variant switch">
+        <template>
+          <ul>
+            <li>
+              <bbva-web-form-toggle description="Label" variant="switch">Main Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle variant="switch">Main Label</bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+          </ul>
+
+          <script type="module">
+            const listToggle = document.querySelectorAll('bbva-web-form-toggle');
+
+            listToggle.forEach(item => {
+              item.addEventListener('change', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-change', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+
+              item.addEventListener('input', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-input', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+            });
+          </script>
+        </template>
+      </bbva-core-demo-case>
+
+      <bbva-core-demo-case heading="Button" description="Variant button. Only the toggle control is displayed.">
+        <template>
+          <ul>
+            <li>
+              <bbva-web-form-toggle label="accessibility label" value="1" variant="button"></bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle label="accessibility label" value="2" variant="button" checked></bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle label="accessibility label" value="3" variant="button" disabled></bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+            <li>
+              <bbva-web-form-toggle label="accessibility label" value="4" variant="button" checked disabled></bbva-web-form-toggle>
+              <bbva-web-divider></bbva-web-divider>
+            </li>
+          </ul>
+
+          <script type="module">
+            const listToggle = document.querySelectorAll('bbva-web-form-toggle');
+
+            listToggle.forEach(item => {
+              item.addEventListener('change', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-change', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+
+              item.addEventListener('input', (ev) => {
+                item.dispatchEvent(new CustomEvent('demo-input', {
+                  bubbles: true,
+                  detail: {
+                    value: ev.target.value,
+                    checked: ev.target.checked,
+                  }
+                }));
+              });
+            });
+          </script>
+        </template>
+      </bbva-core-demo-case>
+    </bbva-core-demo-helper>
+  </body>
+</html>

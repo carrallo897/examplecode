@@ -1,0 +1,10 @@
+@import 'node_modules/@bbva-web-components/bbva-foundations-sass/main';
+
+[ambient^=dark] {
+  --bbva-web-form-toggle-control-color: #{token('foundations.colors.primaryCoreLightened')};
+  --bbva-web-form-toggle-control-checked-color: #{token('foundations.colors.primaryCoreLightened')};
+  --bbva-web-form-toggle-control-knob-tie-color: #{token('foundations.colors.secondary500')};
+  --bbva-web-form-toggle-control-knob-tie-checked-color: #{token('foundations.colors.primaryMedium')};
+  --bbva-web-form-toggle-control-knob-tag-checked-color: #{token('foundations.colors.primaryCoreLightened')};
+  --bbva-web-form-toggle-control-knob-tag-unchecked-color: #{token('foundations.colors.secondary500')};
+}

@@ -1,0 +1,119 @@
+@import 'node_modules/@bbva-web-components/bbva-foundations-sass/main';
+
+:host {
+  --_control-color: var(--bbva-web-form-toggle-control-color, #{token('foundations.colors.secondary500')});
+  --_control-checked-color: var(--bbva-web-form-toggle-control-checked-color, #{token('foundations.colors.primaryMedium')});
+  --_knob-tie-color: var(--bbva-web-form-toggle-control-knob-tie-color, #{token('foundations.colors.primaryCoreLightened')});
+  --_knob-tie-checked-color: var(--bbva-web-form-toggle-control-knob-tie-checked-color, #{token('foundations.colors.primaryCoreLightened')});
+  --_knob-tag-checked: var(--bbva-web-form-toggle-control-knob-tag-checked-color, #{token('foundations.colors.primaryMedium')});
+  --_knob-tag-unchecked: var(--bbva-web-form-toggle-control-knob-tag-unchecked-color, #{token('foundations.colors.primaryCoreLightened')});
+
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  padding: grid8Spacer(1px, em);
+  cursor: pointer;
+}
+
+:host([hidden]),
+[hidden] {
+  display: none !important;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.bg {
+  flex: none;
+  order: 2;
+  position: relative;
+  overflow: hidden;
+  height: rem(24px);
+  width: rem(40px);
+  margin: grid8Spacer(12px) 0;
+  background-color: var(--_control-color);
+  border-radius: rem(13px);
+
+  :host([radio]) & {
+    background-color: var(--_control-checked-color);
+  }
+
+  :host([checked]) & {
+    background-color: var(--_control-checked-color);
+  }
+}
+
+.knob {
+  position: absolute;
+  top: rem(1px);
+  left: rem(1px);
+  right: rem(1px);
+  bottom: rem(1px);
+  transition: transform 0.2s;
+
+  :host([checked]) & {
+    transform: translateX(calc(100% - #{rem(22px)}));
+  }
+
+  &-tie {
+    display: block;
+    height: 100%;
+    width: rem(22px);
+    border-radius: rem(13px);
+    background-color: var(--_knob-tie-color);
+
+    :host([radio]) & {
+      background-color: var(--_knob-tie-checked-color);
+    }
+
+    :host([checked]) & {
+      background-color: var(--_knob-tie-checked-color);
+    }
+  }
+
+  &-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 1px;
+    width: 50%;
+    font-size: token('foundations.typography.type2XSmall');
+    line-height: token('foundations.lineHeight.type2XSmall');
+    font-weight: token('foundations.fontFacePrimary.medium.fontWeight');
+
+    &,
+    :host([checked]) & ~ & {
+      color: var(--_knob-tag-checked);
+    }
+
+    :host([checked]) &,
+    & ~ & {
+      color: var(--_knob-tag-unchecked);
+    }
+  }
+}
+
+.slot-control ::slotted(*) {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+:host([aria-disabled='true']) {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}

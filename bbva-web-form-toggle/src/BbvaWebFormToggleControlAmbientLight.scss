@@ -1,0 +1,10 @@
+@import 'node_modules/@bbva-web-components/bbva-foundations-sass/main';
+
+[ambient^=light] {
+  --bbva-web-form-toggle-control-color: initial;
+  --bbva-web-form-toggle-control-checked-color: initial;
+  --bbva-web-form-toggle-control-knob-tie-color: initial;
+  --bbva-web-form-toggle-control-knob-tie-checked-color: initial;
+  --bbva-web-form-toggle-control-knob-tag-checked-color: initial;
+  --bbva-web-form-toggle-control-knob-tag-unchecked-color: initial;
+}

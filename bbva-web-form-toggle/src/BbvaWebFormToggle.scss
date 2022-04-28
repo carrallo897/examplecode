@@ -1,0 +1,95 @@
+@import 'node_modules/@bbva-web-components/bbva-foundations-sass/main';
+
+:host {
+  --_label-color: var(--bbva-web-form-toggle-label-color, #{token('foundations.colors.secondary600')});
+  --_description-color: var(--bbva-web-form-toggle-label-description-color, #{token('foundations.colors.secondary500')});
+
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: grid8Spacer(8px, em, 15px) grid8Spacer(16px, em, 15px);
+  font-size: token('foundations.typography.typeSmall');
+  line-height: token('foundations.lineHeight.typeSmall');
+  color: var(--_label-color);
+}
+
+:host([hidden]),
+[hidden] {
+  display: none !important;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.sr-only {
+  @include visuallyhidden;
+}
+
+.container {
+  display: flex;
+  align-self: flex-start;
+}
+
+.label {
+  flex: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  align-self: center;
+  height: 100%;
+  margin-right: grid8Spacer(8px);
+
+  .text {
+    flex: auto;
+    display: block;
+  }
+
+  .description {
+    flex: none;
+    display: block;
+    color: var(--_description-color);
+  }
+}
+
+:host([variant='button']) {
+  width: auto;
+
+  .label {
+    margin: 0;
+  }
+}
+
+:host([variant='left']) {
+  .bg {
+    order: initial;
+  }
+
+  .label {
+    margin-left: grid8Spacer(8px);
+  }
+}
+
+:host([variant='switch']) {
+  padding: grid8Spacer(24px, em, 15px) grid8Spacer(16px, em, 15px);
+
+  .bg {
+    margin: 0;
+  }
+
+  .label {
+    flex-direction: row;
+    align-items: baseline;
+    font-weight: token('foundations.fontFacePrimary.medium.fontWeight');
+
+    .description {
+      margin-left: grid8Spacer(8px);
+      font-size: token('foundations.typography.type3XSmall');
+      line-height: token('foundations.lineHeight.type3XSmall');
+      color: var(--_label-color);
+    }
+  }
+}

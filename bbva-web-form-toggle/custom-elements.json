@@ -1,0 +1,387 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "bbva-web-form-toggle",
+      "path": "./src/BbvaWebFormToggle.js",
+      "description": "![LitElement component](https://img.shields.io/badge/litElement-component-blue.svg)\n\nToggles will toggle the state of a page or object. Toggles will act the same as radio buttons in that only one option can be selected.\n\nExample:\n\n```html\n<bbva-web-form-toggle description=\"Description\" value=\"2\">Option Label</bbva-web-form-toggle>\n\n<bbva-web-form-toggle label=\"accessibility label\" value=\"1\" variant=\"button\"></bbva-web-form-toggle>\n\n<bbva-web-form-toggle value=\"2\" description=\"Description\" variant=\"left\">Option Label</bbva-web-form-toggle>\n\n<bbva-web-form-toggle description=\"Label\" variant=\"switch\">Main Label</bbva-web-form-toggle>\n```\n\n## Exports\n- BbvaWebFormToggle\n- bbvaWebFormToggleAmbient\n\n## Styling\n\nThe following custom properties are available for styling:\n\n### Custom properties\n\n| Selector                                    | CSS Property         | CSS Variable                                   | Theme Variable                    | Foundations/Fallback                                        |\n| ------------------------------------------- | -------------------- | ---------------------------------------------- | --------------------------------- | ----------------------------------------------------------- |\n| :host([variant=switch]) .label .description | margin-left          | --gridSpacerVariant                            | --gridSpacer                      | foundations.grid.spacer                       |\n| :host([variant=switch]) .label .description | font-size            |                                                | --typographyType3XSmall           | foundations.typography.type3XSmall            |\n| :host([variant=switch]) .label .description | line-height          |                                                | --lineHeightType3XSmall           | foundations.lineHeight.type3XSmall            |\n| :host([variant=switch]) .label .description | color                | --_label-color                                 |                                   |                                                             |\n| :host([variant=switch]) .label              | font-weight          |                                                | --fontFacePrimaryMediumFontWeight | foundations.fontFacePrimary.medium.fontWeight |\n| :host([variant=switch])                     | padding              | --gridSpacerVariant                            | --gridSpacer                      | foundations.grid.spacer                       |\n| :host([variant=left]) .label                | margin-left          | --gridSpacerVariant                            | --gridSpacer                      | foundations.grid.spacer                       |\n| .label .description                         | color                | --_description-color                           |                                   |                                                             |\n| .label                                      | margin-right         | --gridSpacerVariant                            | --gridSpacer                      | foundations.grid.spacer                       |\n| :host                                       | --_label-color       | --bbva-web-form-toggle-label-color             | --colorsSecondary600              | foundations.colors.secondary600               |\n| :host                                       | --_description-color | --bbva-web-form-toggle-label-description-color | --colorsSecondary500              | foundations.colors.secondary500               |\n| :host                                       | padding              | --gridSpacerVariant                            | --gridSpacer                      | foundations.grid.spacer                       |\n| :host                                       | font-size            |                                                | --typographyTypeSmall             | foundations.typography.typeSmall              |\n| :host                                       | line-height          |                                                | --lineHeightTypeSmall             | foundations.lineHeight.typeSmall              |\n| :host                                       | color                | --_label-color                                 |                                   |                                                             |\n### Custom properties\n\n| Selector                               | CSS Property              | CSS Variable                                            | Theme Variable                    | Foundations/Fallback                                        |\n| -------------------------------------- | ------------------------- | ------------------------------------------------------- | --------------------------------- | ----------------------------------------------------------- |\n| :host([checked]) .knob-tag             | color                     | --_knob-tag-unchecked                                   |                                   |                                                             |\n| .knob-tag ~ .knob-tag                  | color                     | --_knob-tag-unchecked                                   |                                   |                                                             |\n| .knob-tag                              | color                     | --_knob-tag-checked                                     |                                   |                                                             |\n| :host([checked]) .knob-tag ~ .knob-tag | color                     | --_knob-tag-checked                                     |                                   |                                                             |\n| .knob-tag                              | font-size                 |                                                         | --typographyType2XSmall           | foundations.typography.type2XSmall            |\n| .knob-tag                              | line-height               |                                                         | --lineHeightType2XSmall           | foundations.lineHeight.type2XSmall            |\n| .knob-tag                              | font-weight               |                                                         | --fontFacePrimaryMediumFontWeight | foundations.fontFacePrimary.medium.fontWeight |\n| :host([checked]) .knob-tie             | background-color          | --_knob-tie-checked-color                               |                                   |                                                             |\n| :host([radio]) .knob-tie               | background-color          | --_knob-tie-checked-color                               |                                   |                                                             |\n| .knob-tie                              | background-color          | --_knob-tie-color                                       |                                   |                                                             |\n| :host([checked]) .bg                   | background-color          | --_control-checked-color                                |                                   |                                                             |\n| :host([radio]) .bg                     | background-color          | --_control-checked-color                                |                                   |                                                             |\n| .bg                                    | margin                    | --gridSpacerVariant                                     | --gridSpacer                      | foundations.grid.spacer                       |\n| .bg                                    | background-color          | --_control-color                                        |                                   |                                                             |\n| :host                                  | --_control-color          | --bbva-web-form-toggle-control-color                    | --colorsSecondary500              | foundations.colors.secondary500               |\n| :host                                  | --_control-checked-color  | --bbva-web-form-toggle-control-checked-color            | --colorsPrimaryMedium             | foundations.colors.primaryMedium              |\n| :host                                  | --_knob-tie-color         | --bbva-web-form-toggle-control-knob-tie-color           | --colorsPrimaryCoreLightened      | foundations.colors.primaryCoreLightened       |\n| :host                                  | --_knob-tie-checked-color | --bbva-web-form-toggle-control-knob-tie-checked-color   | --colorsPrimaryCoreLightened      | foundations.colors.primaryCoreLightened       |\n| :host                                  | --_knob-tag-checked       | --bbva-web-form-toggle-control-knob-tag-checked-color   | --colorsPrimaryMedium             | foundations.colors.primaryMedium              |\n| :host                                  | --_knob-tag-unchecked     | --bbva-web-form-toggle-control-knob-tag-unchecked-color | --colorsPrimaryCoreLightened      | foundations.colors.primaryCoreLightened       |\n| :host                                  | padding                   | --gridSpacerVariant                                     | --gridSpacer                      | foundations.grid.spacer                       |\n### Custom properties\n\n\n\n## Ambient\n\n### Custom properties\n\n| Selector        | CSS Property                                   | CSS Variable                                                | Theme Variable               | Foundations/Fallback                                  |\n| --------------- | ---------------------------------------------- | ----------------------------------------------------------- | ---------------------------- | ----------------------------------------------------- |\n| [ambient^=dark] | --bbva-web-form-toggle-label-color             | --bbva-web-form-toggle-label-color-ambient-dark             | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n| [ambient^=dark] | --bbva-web-form-toggle-label-description-color | --bbva-web-form-toggle-label-description-color-ambient-dark | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n\n### Custom properties\n\n\n\n### Custom properties\n\n| Selector        | CSS Property                                            | CSS Variable | Theme Variable               | Foundations/Fallback                                  |\n| --------------- | ------------------------------------------------------- | ------------ | ---------------------------- | ----------------------------------------------------- |\n| [ambient^=dark] | --bbva-web-form-toggle-control-color                    |              | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n| [ambient^=dark] | --bbva-web-form-toggle-control-checked-color            |              | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tie-color           |              | --colorsSecondary500         | foundations.colors.secondary500         |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tie-checked-color   |              | --colorsPrimaryMedium        | foundations.colors.primaryMedium        |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tag-checked-color   |              | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tag-unchecked-color |              | --colorsSecondary500         | foundations.colors.secondary500         |\n\n### Custom properties\n\n\n> Styling documentation generated by Cells CLI",
+      "attributes": [
+        {
+          "name": "description",
+          "description": "Description text",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "description": "Form toggle variant. Can be:\n- button, only the toggle control is displayed. For accessibility you should add the label property.\n- left, shows the toggle control to the left of text and description.\n- switch, shows the label text and description inline and with other font-size and font-weight.",
+          "type": "string"
+        },
+        {
+          "name": "disabled",
+          "description": "If true, switch is disabled",
+          "type": "boolean"
+        },
+        {
+          "name": "form",
+          "description": "Associated form for switch",
+          "type": "string"
+        },
+        {
+          "name": "label",
+          "description": "Accessible but not visible label for switch",
+          "type": "string"
+        },
+        {
+          "name": "required",
+          "description": "If true, switch is required",
+          "type": "boolean"
+        },
+        {
+          "name": "tag-off",
+          "description": "Tag to be shown inside switch for unchecked state",
+          "type": "string"
+        },
+        {
+          "name": "tag-on",
+          "description": "Tag to be shown inside switch for checked state",
+          "type": "string"
+        },
+        {
+          "name": "checked",
+          "description": "If true, switch is currently checked",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "name",
+          "description": "Name of switch related to forms",
+          "type": "string"
+        },
+        {
+          "name": "radio",
+          "description": "If true, switch will behave as a pair of radio buttons, and will always be sent in forms regardless of checked state",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "value",
+          "description": "Value for switch",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "value-off",
+          "description": "Value for switch when unchecked (only for radio state)",
+          "type": "string",
+          "default": "\"\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "description",
+          "attribute": "description",
+          "description": "Description text",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "attribute": "variant",
+          "description": "Form toggle variant. Can be:\n- button, only the toggle control is displayed. For accessibility you should add the label property.\n- left, shows the toggle control to the left of text and description.\n- switch, shows the label text and description inline and with other font-size and font-weight.",
+          "type": "string"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If true, switch is disabled",
+          "type": "boolean"
+        },
+        {
+          "name": "form",
+          "attribute": "form",
+          "description": "Associated form for switch",
+          "type": "string"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Accessible but not visible label for switch",
+          "type": "string"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "If true, switch is required",
+          "type": "boolean"
+        },
+        {
+          "name": "tagOff",
+          "attribute": "tag-off",
+          "description": "Tag to be shown inside switch for unchecked state",
+          "type": "string"
+        },
+        {
+          "name": "tagOn",
+          "attribute": "tag-on",
+          "description": "Tag to be shown inside switch for checked state",
+          "type": "string"
+        },
+        {
+          "name": "_labelledInput",
+          "description": "HTML structure combining control (inputTemplate) and label (labelTemplate)"
+        },
+        {
+          "name": "_inputTemplate",
+          "description": "HTML structure to be used as switch visible control"
+        },
+        {
+          "name": "_labelTemplate",
+          "description": "HTML to be used as label for the switch"
+        },
+        {
+          "name": "active",
+          "description": "Active state of switch",
+          "type": "boolean"
+        },
+        {
+          "name": "_labelState"
+        },
+        {
+          "name": "_control",
+          "type": "TemplateResult"
+        },
+        {
+          "name": "_active",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "_formElementId",
+          "type": "string"
+        },
+        {
+          "name": "checked",
+          "attribute": "checked",
+          "description": "If true, switch is currently checked",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Name of switch related to forms",
+          "type": "string"
+        },
+        {
+          "name": "radio",
+          "attribute": "radio",
+          "description": "If true, switch will behave as a pair of radio buttons, and will always be sent in forms regardless of checked state",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Value for switch",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "valueOff",
+          "attribute": "value-off",
+          "description": "Value for switch when unchecked (only for radio state)",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "_onClick"
+        },
+        {
+          "name": "_onKeyUp"
+        },
+        {
+          "name": "_onKeyDown"
+        }
+      ]
+    },
+    {
+      "name": "bbva-web-form-toggle-control",
+      "path": "./src/BbvaWebFormToggleControl.js",
+      "description": "![LitElement component](https://img.shields.io/badge/litElement-component-blue.svg)\n\n`BbvaWebFormToggleControl` is a base class extending from `@bbva-web-components/bbva-core-switch` which provides a basic toggle control with BBVA Experience styling. It's meant to be extended and should not be used 'as is'. So, it does not define a `<bbva-web-form-toggle-control>` custom element. Check 'BbvaWebFormToggle' for a ready-to-use BBVA Experience Web Studio toggle control.\n\n## Exports\n- BbvaWebFormToggleControl\n- bbvaWebFormToggleControlAmbient\n\n## Styling\n\nThe following custom properties are available for styling:\n\n### Custom properties\n\n| Selector                               | CSS Property              | CSS Variable                                    | Theme Variable                    | Foundations/Fallback                                        |\n| -------------------------------------- | ------------------------- | ----------------------------------------------- | --------------------------------- | ----------------------------------------------------------- |\n| :host([checked]) .knob-tag             | color                     | --_knob-tag-unchecked                           |                                   |                                                             |\n| .knob-tag ~ .knob-tag                  | color                     | --_knob-tag-unchecked                           |                                   |                                                             |\n| .knob-tag                              | color                     | --_knob-tag-checked                             |                                   |                                                             |\n| :host([checked]) .knob-tag ~ .knob-tag | color                     | --_knob-tag-checked                             |                                   |                                                             |\n| .knob-tag                              | font-size                 |                                                 | --typographyType2XSmall           | foundations.typography.type2XSmall            |\n| .knob-tag                              | line-height               |                                                 | --lineHeightType2XSmall           | foundations.lineHeight.type2XSmall            |\n| .knob-tag                              | font-weight               |                                                 | --fontFacePrimaryMediumFontWeight | foundations.fontFacePrimary.medium.fontWeight |\n| :host([checked]) .knob-tie             | background-color          | --_knob-tie-checked-color                       |                                   |                                                             |\n| :host([radio]) .knob-tie               | background-color          | --_knob-tie-checked-color                       |                                   |                                                             |\n| .knob-tie                              | background-color          | --_knob-tie-color                               |                                   |                                                             |\n| :host([checked]) .bg                   | background-color          | --_control-checked-color                        |                                   |                                                             |\n| :host([radio]) .bg                     | background-color          | --_control-checked-color                        |                                   |                                                             |\n| .bg                                    | margin                    | --gridSpacerVariant                             | --gridSpacer                      | foundations.grid.spacer                       |\n| .bg                                    | background-color          | --_control-color                                |                                   |                                                             |\n| :host                                  | --_control-color          | --bbva-web-form-toggle-control-color            | --colorsSecondary500              | foundations.colors.secondary500               |\n| :host                                  | --_control-checked-color  | --bbva-web-form-toggle-control-checked-color    | --colorsPrimaryMedium             | foundations.colors.primaryMedium              |\n| :host                                  | --_knob-tie-color         | --bbva-web-form-toggle-knob-tie-color           | --colorsPrimaryCoreLightened      | foundations.colors.primaryCoreLightened       |\n| :host                                  | --_knob-tie-checked-color | --bbva-web-form-toggle-knob-tie-checked-color   | --colorsPrimaryCoreLightened      | foundations.colors.primaryCoreLightened       |\n| :host                                  | --_knob-tag-checked       | --bbva-web-form-toggle-knob-tag-checked-color   | --colorsPrimaryMedium             | foundations.colors.primaryMedium              |\n| :host                                  | --_knob-tag-unchecked     | --bbva-web-form-toggle-knob-tag-unchecked-color | --colorsPrimaryCoreLightened      | foundations.colors.primaryCoreLightened       |\n\n## Ambient\n\n### Custom properties\n\n| Selector        | CSS Property                                    | CSS Variable | Theme Variable               | Foundations/Fallback                                  |\n| --------------- | ----------------------------------------------- | ------------ | ---------------------------- | ----------------------------------------------------- |\n| [ambient^=dark] | --bbva-web-form-toggle-control-color            |              | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n| [ambient^=dark] | --bbva-web-form-toggle-control-checked-color    |              | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tie-color           |              | --colorsSecondary500         | foundations.colors.secondary500         |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tie-checked-color   |              | --colorsPrimaryMedium        | foundations.colors.primaryMedium        |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tag-checked-color   |              | --colorsPrimaryCoreLightened | foundations.colors.primaryCoreLightened |\n| [ambient^=dark] | --bbva-web-form-toggle-control-knob-tag-unchecked-color |              | --colorsSecondary500         | foundations.colors.secondary500         |\n\n\n> Styling documentation generated by Cells CLI",
+      "attributes": [
+        {
+          "name": "disabled",
+          "description": "If true, switch is disabled",
+          "type": "boolean"
+        },
+        {
+          "name": "form",
+          "description": "Associated form for switch",
+          "type": "string"
+        },
+        {
+          "name": "label",
+          "description": "Accessible but not visible label for switch",
+          "type": "string"
+        },
+        {
+          "name": "required",
+          "description": "If true, switch is required",
+          "type": "boolean"
+        },
+        {
+          "name": "tag-off",
+          "description": "Tag to be shown inside switch for unchecked state",
+          "type": "string"
+        },
+        {
+          "name": "tag-on",
+          "description": "Tag to be shown inside switch for checked state",
+          "type": "string"
+        },
+        {
+          "name": "checked",
+          "description": "If true, switch is currently checked",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "name",
+          "description": "Name of switch related to forms",
+          "type": "string"
+        },
+        {
+          "name": "radio",
+          "description": "If true, switch will behave as a pair of radio buttons, and will always be sent in forms regardless of checked state",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "value",
+          "description": "Value for switch",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "value-off",
+          "description": "Value for switch when unchecked (only for radio state)",
+          "type": "string",
+          "default": "\"\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If true, switch is disabled",
+          "type": "boolean"
+        },
+        {
+          "name": "form",
+          "attribute": "form",
+          "description": "Associated form for switch",
+          "type": "string"
+        },
+        {
+          "name": "label",
+          "attribute": "label",
+          "description": "Accessible but not visible label for switch",
+          "type": "string"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "If true, switch is required",
+          "type": "boolean"
+        },
+        {
+          "name": "tagOff",
+          "attribute": "tag-off",
+          "description": "Tag to be shown inside switch for unchecked state",
+          "type": "string"
+        },
+        {
+          "name": "tagOn",
+          "attribute": "tag-on",
+          "description": "Tag to be shown inside switch for checked state",
+          "type": "string"
+        },
+        {
+          "name": "_labelledInput",
+          "description": "HTML structure combining control (inputTemplate) and label (labelTemplate)"
+        },
+        {
+          "name": "_inputTemplate",
+          "description": "HTML structure to be used as switch visible control"
+        },
+        {
+          "name": "_labelTemplate",
+          "description": "HTML to be used as label for the switch"
+        },
+        {
+          "name": "active",
+          "description": "Active state of switch",
+          "type": "boolean"
+        },
+        {
+          "name": "_labelState"
+        },
+        {
+          "name": "_control",
+          "type": "TemplateResult"
+        },
+        {
+          "name": "_active",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "_formElementId",
+          "type": "string"
+        },
+        {
+          "name": "checked",
+          "attribute": "checked",
+          "description": "If true, switch is currently checked",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "Name of switch related to forms",
+          "type": "string"
+        },
+        {
+          "name": "radio",
+          "attribute": "radio",
+          "description": "If true, switch will behave as a pair of radio buttons, and will always be sent in forms regardless of checked state",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "Value for switch",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "valueOff",
+          "attribute": "value-off",
+          "description": "Value for switch when unchecked (only for radio state)",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "_onClick"
+        },
+        {
+          "name": "_onKeyUp"
+        },
+        {
+          "name": "_onKeyDown"
+        }
+      ]
+    }
+  ]
+}
